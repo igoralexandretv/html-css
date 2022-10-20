@@ -1,0 +1,95 @@
+@import "../../../css/colors.less";
+
+.uiTerms {
+	display: none;
+	width: 562px;
+	height: 700px;
+	margin-top: -80px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	> * {
+		flex-shrink: 0;
+	}
+
+	.logo {
+		width: 562px;
+		height: 200px;
+		margin-bottom: 24px;
+		filter: drop-shadow(0px -4px 0px @blackD) 
+		drop-shadow(0px 4px 0px @blackD)
+		drop-shadow(4px 0px 0px @blackD) 
+		drop-shadow(-4px 0px 0px @blackD);
+	}
+
+	.heading {
+		color: @orangeA;
+		filter: drop-shadow(0px -4px 0px @blackD) 
+		drop-shadow(0px 4px 0px @blackD)
+		drop-shadow(4px 0px 0px @blackD) 
+		drop-shadow(-4px 0px 0px @blackD);
+		margin-bottom: 24px;
+	}
+
+	.content {
+		flex: 1;
+		width: 100%;
+		overflow-y: auto;
+		background-color: @blackC;
+		border: 5px solid @blackB;
+		padding: 10px;
+		color: @grayB;
+		text-align: justify;
+
+		.title {
+			color: @white;
+		}
+
+	}
+
+	.buttons {
+		width: 100%;
+		background-color: @blackC;
+		display: flex;
+		justify-content: space-between;
+		border-style: solid;
+		border-color: @blackB;
+		border-width: 0px 5px 5px 5px;
+		padding: 5px;
+
+		.btn {
+			background-color: @blueC;
+			color: @white;
+			height: 35px;
+			padding-left: 10px;
+			padding-right: 10px;
+
+			&:hover {
+				background-color: @blueB;
+			}
+
+		}
+
+	}
+
+	a {
+		color: @blueB;
+
+		&:hover {
+			color: @blueA;
+		}
+
+	}
+
+}
+
+.mobile .uiTerms {
+	height: 80%;
+	margin-top: 0px;
+
+	.logo {
+		display: none;
+	}
+
+}

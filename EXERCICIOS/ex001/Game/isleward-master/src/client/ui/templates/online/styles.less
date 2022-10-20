@@ -1,0 +1,100 @@
+@import "../../../css/colors.less";
+
+.uiOnline {
+	display: none;
+	background-color: @blackB;
+	border: 5px solid @blackB;
+	text-align: center;
+	width: 450px;
+	height: 396px;
+
+	> .heading {
+		color: @blueA;
+		width: 100%;
+		height: 36px;
+		background-color: @blackB;
+
+		.heading-text {
+			padding-top: 8px;
+			margin: auto;
+		}
+
+	}
+
+	.bottom {
+		height: calc(100% - 36px);
+		background-color: @blackC;
+		padding: 8px;
+
+		.list {
+			width: 100%;
+			height: 100%;
+			overflow-y: auto;
+			background-color: @blackC;
+			display: flex;
+			flex-direction: column;
+
+			.heading {
+				height: 24px;
+				color: @white;
+
+				> div {
+					float: left;
+					padding: 4px;
+					height: 24px;
+
+					&:nth-child(1) {
+						width: 10%;
+					}
+
+					&:nth-child(2) {
+						width: 55%;
+					}
+
+					&:nth-child(3) {
+						width: 35%;
+					}
+
+				}
+
+			}
+
+			.onlineUser {
+				color: @grayC;
+				height: 24px;
+				cursor: pointer;
+
+				> div {
+					float: left;
+					padding: 4px;
+					height: 24px;
+
+					&:nth-child(1) {
+						width: 10%;
+					}
+
+					&:nth-child(2) {
+						width: 55%;
+					}
+
+					&:nth-child(3) {
+						width: 35%;
+					}
+
+				}
+
+				&:hover {
+					background-color: @blackB;
+				}
+
+			}
+
+		}
+
+	}
+
+}
+
+.mobile .uiOnline {
+	z-index: 2;
+}

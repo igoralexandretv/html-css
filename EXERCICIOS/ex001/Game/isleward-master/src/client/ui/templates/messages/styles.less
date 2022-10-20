@@ -1,0 +1,426 @@
+@import "../../../css/colors.less";
+@pad: 8px;
+@btnSize: 64px;
+
+.uiMessages {
+	position: absolute;
+	left: 10px;
+	bottom: 10px;
+	width: 480px;
+	pointer-events: none;
+	display: flex;
+	flex-direction: column;
+
+	.filters {
+		display: none;
+		width: 100%;
+		flex-wrap: wrap;
+
+		.filter {
+			height: 100%;
+			background-color: @blackC;
+			float: left;
+			color: @blackA;
+			margin-right: 10px;
+			margin-bottom: 10px;
+			padding: 5px 10px;
+			cursor: pointer;
+
+			&:hover {
+				background-color: @blackB;
+				color: @grayD;
+			}
+
+			&.active {
+				background-color: @blackB;
+				color: @blueB;
+
+				&:hover {
+					background-color: @blackA;
+					color: @grayB;
+				}
+
+			}
+
+		}
+
+	}
+
+	.list {
+		overflow-y: hidden;
+		width: 100%;
+		max-height: 320px;
+
+		.list-message {
+			display: none;
+			width: 100%;
+			padding: 5px 10px;
+			color: white;
+			filter: drop-shadow(0px -2px 0px @blackD)
+			drop-shadow(0px 2px 0px @blackD)
+			drop-shadow(2px 0px 0px @blackD)
+			drop-shadow(-2px 0px 0px @blackD);
+			-moz-filter: drop-shadow(0px -2px 0px @blackD)
+			drop-shadow(0px 2px 0px @blackD)
+			drop-shadow(2px 0px 0px @blackD)
+			drop-shadow(-2px 0px 0px @blackD);
+			word-wrap: break-word;
+			line-height: 18px;
+
+			&.q {
+				color: @grayB;
+			}
+
+			&.q0 {
+				color: @white;
+			}
+
+			&.q1 {
+				color: @greenB;
+			}
+
+			a,
+			&.q2 {
+				color: @blueB;
+			}
+
+			&.q3 {
+				color: @purpleA;
+			}
+
+			&.q4 {
+				color: @orangeA;
+			}
+
+			&.color-green {
+				color: @greenA;
+			}
+
+			&.color-red {
+				color: @redB;
+			}
+
+			&.color-cyan {
+				color: @blueA;
+			}
+
+			&.color-tealC {
+				color: @tealC;
+			}
+
+		}
+
+		&.rep .rep {
+			display: block;
+		}
+
+		&.chat .chat {
+			display: block;
+		}
+
+		&.info .info {
+			display: block;
+		}
+
+		&.loot .loot {
+			display: block;
+		}
+
+	}
+
+	.bottom {
+		display: none;
+
+		.channelPicker {
+			min-width: 100px;
+			color: 1;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			color: @white;
+			background-color: @blueC;
+			cursor: pointer;
+			padding: 0px 10px;
+
+			&:after {
+				content: '▾';
+				margin-left: 10px;
+			}
+
+			&:hover {
+				background-color: @blueD;
+			}
+
+		}
+
+		.el {
+			flex: 1;
+			width: 100%;
+			color: @white;
+
+			&.textbox.message {
+				display: none;
+				background-color: @blackB;
+				text-align: left;
+				padding: 5px 10px;
+			}
+
+		}
+
+		&.time {
+			display: flex;
+			align-items: center;
+			padding-left: 10px;
+			background-color: transparent;
+			height: 35px;
+			color: @white;
+			text-align: left;
+			filter: drop-shadow(0px -2px 0px @blackD)
+			drop-shadow(0px 2px 0px @blackD)
+			drop-shadow(2px 0px 0px @blackD)
+			drop-shadow(-2px 0px 0px @blackD);
+			-moz-filter: drop-shadow(0px -2px 0px @blackD)
+			drop-shadow(0px 2px 0px @blackD)
+			drop-shadow(2px 0px 0px @blackD)
+			drop-shadow(-2px 0px 0px @blackD);
+		}
+
+		&.channelOptions {
+			display: none;
+			flex-direction: column;
+			position: absolute;
+			left: 0px;
+			bottom: 0px;
+			min-width: 100px;
+
+			.option {
+				height: 35px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				color: @grayB;
+				background-color: @blackA;
+				cursor: pointer;
+				padding: 0px 10px;
+
+				&:after {
+					content: attr(shortcut);
+					margin-left: 10px;
+					color: @grayC;
+				}
+
+				&:hover,
+				&.selected {
+					background-color: @grayD;
+					color: @white;
+				}
+
+			}
+
+		}
+
+	}
+
+	&.typing {
+		pointer-events: all;
+
+		.filters {
+			pointer-events: all;
+			display: flex;
+		}
+
+		.list {
+			overflow-y: auto;
+			background-color: @blackC;
+
+			.list-message {
+				filter: none;
+			}
+
+		}
+
+		.bottom {
+			display: flex;
+
+			.el.textbox {
+				&.message:not(.input) {
+					display: block;
+				}
+
+			}
+
+		}
+
+		.time {
+			display: none;
+		}
+
+		.channelOptions {
+			display: none;
+
+			&.active {
+				display: flex;
+			}
+
+		}
+
+	}
+
+	&.active {
+		.list-message {
+			opacity: 1 !important;
+		}
+
+	}
+
+	&.picking {
+		&:before {
+			position: absolute;
+			content: '';
+			left: 0px;
+			top: 0px;
+			width: 100%;
+			height: 100%;
+			background-color: @blackD;
+			opacity: 0.7;
+		}
+
+	}
+
+}
+
+.mobile .uiMessages {
+	padding: 0px;
+	pointer-events: all;
+
+	.btnClose.active {
+		float: right;
+		margin-right: 0px;
+		padding: 5px 20px;
+		color: @redA;
+	}
+
+	input {
+		display: none;
+	}
+
+	.filters {
+		margin-bottom: 0px;
+		flex-shrink: 0;
+		background-color: @blackC;
+	}
+
+	.list {
+		height: 100%;
+		max-height: 100%;
+	}
+
+	&.typing {
+		left: 0px;
+		top: 0px;
+		width: 100vw;
+		height: 100vh;
+		background-color: fade(@blackC, 90%);
+		display: flex;
+		flex-direction: column;
+		z-index: 999999998;
+
+		.main {
+			display: flex;
+			flex-direction: column;
+			flex-grow: 1;
+			min-height: 0px;
+		}
+
+		.channelPicker {
+			display: none;
+		}
+
+		.channelOptions {
+			z-index: 999999999;
+		}
+
+		.bottom {
+			.input {
+				display: block;
+				height: 26px;
+				flex-shrink: 0;
+			}
+
+		}
+
+		.el.textbox.message:not(.input),.time {
+			display: none;
+		}
+
+		.keyboard {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			background-color: @blackC;
+			justify-content: center;
+			align-items: center;
+			height: 140px;
+			flex-shrink: 0;
+
+			.key {
+				flex: 1;
+				background-color: @blackA;
+				color: @white;
+				padding: 8px 10px;
+				text-align: center;
+
+				&.special {
+					color: @orangeA;
+				}
+
+				&.hidden {
+					color: @blackC;
+				}
+
+				&.space {
+					flex: 5;
+				}
+
+			}
+
+			.newline {
+				width: 100%;
+			}
+
+			.gap {
+				width: 5%;
+				flex-shrink: 0;
+			}
+
+		}
+
+	}
+
+	&:not(.typing) {
+		top: 10px;
+		right: 84px;
+		left: auto;
+		bottom: auto;
+		width: @btnSize;
+		height: @btnSize;
+		background-color: fade(@blackC, 90%);
+
+		&:after {
+			content: '';
+			position: absolute;
+			left: 0px;
+			top: 0px;
+			background: url('../../../images/uiIcons.png');
+			background-position: -0px -128px;
+			width: @btnSize;
+			height: @btnSize;
+		}
+
+		> * {
+			display: none;
+		}
+
+	}
+
+}

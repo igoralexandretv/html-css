@@ -1,0 +1,151 @@
+@import "../../../css/colors.less";
+
+.uiWardrobe {
+	display: none;
+	width: 600px;
+	height: 350px;
+	border: 5px solid @blackB;
+	text-align: center;
+	background-color: @blackC;
+
+	> .heading {
+		color: @blueA;
+		width: 100%;
+		height: 36px;
+		background-color: @blackB;
+		position: relative;
+
+		.heading-text {
+			padding-top: 8px;
+			margin: auto;
+		}
+
+	}
+
+	.bottom {
+		height: calc(100% - 36px);
+
+		.left,
+		.right {
+			float: left;
+			height: 100%;
+		}
+
+		.left {
+			width: calc(100% * 0.4);
+
+			.heading {
+				width: 100%;
+				height: 30px;
+				color: @yellowA;
+				padding-top: 7px;
+			}
+
+			.list {
+				width: 100%;
+				height: calc(100% - 30px);
+				overflow: auto;
+
+				.skinName {
+					width: 100%;
+					cursor: pointer;
+					color: white;
+					padding: 5px;
+
+					&:hover {
+						background-color: @blackB;
+					}
+
+					&.active {
+						color: @blueA;
+					}
+
+					&.current {
+						&:after {
+							content: ' (x)';
+						}
+
+					}
+
+				}
+
+			}
+
+		}
+
+		.right {
+			width: calc(100% * 0.6);
+			position: relative;
+			background-color: @black;
+
+			.heading {
+				width: 100%;
+				height: 30px;
+				color: @yellowA;
+				padding-top: 7px;
+			}
+
+			.preview {
+				padding-left: calc((100% - (8 * 16px)) / 2);
+				position: relative;
+				height: calc(100% - 80px);
+
+				.sprite {
+					width: 8px;
+					height: 8px;
+					position: absolute;
+					left: calc((100% - (8 * 16px)) / 2);
+					top: calc((100% - (8 * 16px)) / 2);
+					transform: scale(16);
+					transform-origin: 0% 0%;
+					image-rendering: optimizeSpeed;
+					image-rendering: pixelated;
+					image-rendering: crisp-edges;
+				}
+
+			}
+
+			.buttons {
+				width: 100%;
+				padding: 0px 10px;
+				height: 50px;
+
+				.btn {
+					float: left;
+					width: calc((100% - 50px) / 2);
+					height: 40px;
+					padding-top: 12px;
+					color: white;
+					cursor: pointer;
+
+					&:first-child {
+						margin-right: 50px;
+					}
+
+				}
+
+				.btnCancel {
+					background-color: @redB;
+
+					&:hover {
+						background-color: @redA;
+					}
+
+				}
+
+				.btnApply {
+					background-color: @greenB;
+
+					&:hover {
+						background-color: @greenA;
+					}
+
+				}
+
+			}
+
+		}
+
+	}
+
+}

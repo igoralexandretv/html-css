@@ -1,0 +1,245 @@
+@import "../../../css/colors.less";
+@boxHeight: 276px;
+@boxPadding: 27px;
+@logoWidth: 559px;
+@logoHeight: 200px;
+@messageHeight: @boxPadding;
+@totalWidth: (@logoWidth + (@boxPadding * 2) + 427px);
+@totalHeight: (@logoHeight + @boxHeight + (@boxPadding * 3) + @messageHeight);
+
+.uiCreateCharacter {
+	width: @totalWidth;
+	height: @totalHeight;
+
+	.logo {
+		width: 562px;
+		height: @logoHeight;
+		margin-left: ((@totalWidth / 2) - (@logoWidth / 2));
+		margin-bottom: (@boxPadding * 2);
+	}
+
+	.box-left {
+		float: left;
+		height: @boxHeight;
+		width: 613px;
+		background-color: #3a3b4a;
+
+		.left, .right {
+			float: left;
+			height: 100%;
+		}
+
+		.left {
+			width: calc(100% - (@boxPadding * 2) - 160px);
+			padding: @boxPadding 0px @boxPadding @boxPadding;
+
+			.txtClass, .txtCostume {
+				cursor: pointer;
+				-webkit-user-select: none;
+
+				&:active {
+					background-color: @blackC;
+				}
+
+			}
+
+			.txtClass {
+			}
+
+			.label {
+				color: @grayB;
+				text-align: center;
+				margin-bottom: 8.3px;
+			}
+
+			.skinBox {
+				display: flex;
+				flex-direction: row;
+				height: 35px;
+
+				.btn {
+					width: 35px;
+					margin: 0px;
+					flex-shrink: 0;
+					height: 100%;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					padding: 0px;
+					background-color: @grayD;
+
+					&:first-child {
+						margin-right: 10px;
+					}
+
+					&:last-child {
+						margin-left: 10px;
+					}
+
+					&:hover {
+						background-color: @grayC;
+					}
+
+				}
+
+				.txtCostume {
+					height: 100%;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					padding: 0px;
+				}
+
+			}
+
+		}
+
+		.right {
+			width: calc(160px + (@boxPadding * 2));
+			padding: @boxPadding @boxPadding @boxPadding @boxPadding;
+		}
+
+		.portrait {
+			width: 100%;
+			height: 160px;
+			background-color: @black;
+			padding: 16px 0 0 16px;
+			margin-bottom: @boxPadding;
+
+			.sprite {
+				width: 8px;
+				height: 8px;
+				transform: scale(16);
+				transform-origin: 0% 0%;
+				image-rendering: optimizeSpeed;
+				image-rendering: pixelated;
+				image-rendering: crisp-edges;
+			}
+
+		}
+
+		.textbox {
+			width: 100%;
+			background-color: @black;
+			border: 2px solid @grayC;
+			color: @white;
+			margin-bottom: 22px;
+		}
+
+		.btn {
+			background-color: @blueC;
+			width: calc((100% - @boxPadding) / 2);
+			float: left;
+			margin-right: @boxPadding;
+			color: @white;
+
+			&:last-child {
+				margin-right: 0px;
+			}
+
+			&:hover {
+				background-color: @blueB;
+			}
+
+		}
+
+		.message {
+			height: @messageHeight;
+			width: 100%;
+			margin-top: @boxPadding;
+			float: left;
+			text-align: center;
+			color: @redA;
+		}
+
+	}
+
+	.box-right {
+		padding: @boxPadding @boxPadding @boxPadding @boxPadding;
+		float: left;
+		height: @boxHeight;
+		width: 400px;
+		margin-left: 13px;
+		background-color: #3a3b4a;
+
+		.top {
+			width: 100%;
+			color: @white;
+
+			> * {
+				width: 100%;
+				text-align: center;
+			}
+
+			.heading {
+				margin-bottom: @boxPadding;
+				color: @blueA;
+			}
+
+			.list {
+				.prophecy {
+					padding-top: 0px;
+					width: 50%;
+					float: left;
+					height: 24px;
+					margin-bottom: 24px;
+					color: @redA;
+					cursor: pointer;
+
+					&:after {
+						content: '  ✗';
+					}
+
+					&.active {
+						color: @greenA;
+
+						&:after {
+							content: '  ✔';
+						}
+
+					}
+
+					&.disabled {
+						color: @white;
+					}
+
+					&:hover {
+						color: @white;
+					}
+
+				}
+
+			}
+
+		}
+
+	}
+
+}
+
+.mobile .uiCreateCharacter {
+	height: 276px;
+	width: calc(@totalWidth - 80px);
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+
+	.logo {
+		display: none;
+	}
+
+	.box-left {
+		width: 45%;
+
+		.skinBox {
+			height: 35px;
+		}
+
+	}
+
+	.box-right {
+		width: 45%;
+	}
+
+}

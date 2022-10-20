@@ -1,0 +1,408 @@
+@import "../../../css/colors.less";
+
+.uiEquipment {
+	display: none;
+	z-index: 2;
+	border: 5px solid @blackB;
+	text-align: center;
+	width: 500px;
+	height: 712px;
+
+	> .heading {
+		color: @white;
+		width: 100%;
+		height: 36px;
+		background-color: @blackB;
+
+		.heading-text {
+			padding-top: 8px;
+			margin: auto;
+		}
+
+	}
+
+	.content {
+		width: 100%;
+		height: calc(100% - 36px);
+		background-color: @blackC;
+		display: flex;
+		flex-direction: column;
+
+		.tabs {
+			width: 100%;
+			height: 40px;
+			padding: 8px 8px 0px 8px;
+
+			.tab {
+				cursor: pointer;
+				background-color: @blackB;
+				color: @white;
+				margin-right: 8px;
+				float: left;
+				height: 100%;
+				padding-top: 8px;
+				padding-left: 8px;
+				padding-right: 8px;
+				width: calc((100% - 24px) / 4);
+
+				&:hover {
+					background-color: @blackA;
+				}
+
+				&.selected {
+					background-color: @blackA;
+					color: @blueA;
+				}
+
+				&:last-child {
+					margin-right: 0px;
+				}
+
+			}
+
+		}
+
+		.main {
+			height: 528px;
+			display: flex;
+			flex-direction: column;
+			flex-wrap: wrap;
+
+			.left,
+			.right {
+				width: 96px;
+				padding: 8px;
+			}
+
+			.left,
+			.stats,
+			.right,
+			.bottom {
+				height: 528px;
+			}
+
+			.stats {
+				height: calc(528px - 80px);
+				width: calc(100% - (2 * 96px));
+				padding: 16px 8px 8px 8px;
+
+				.stat {
+					height: 22px;
+					filter: drop-shadow(0px -2px 0px @blackD) 
+					drop-shadow(0px 2px 0px @blackD)
+					drop-shadow(2px 0px 0px @blackD) 
+					drop-shadow(-2px 0px 0px @blackD);
+					-moz-filter: drop-shadow(0px -2px 0px @blackD) 
+					drop-shadow(0px 2px 0px @blackD)
+					drop-shadow(2px 0px 0px @blackD) 
+					drop-shadow(-2px 0px 0px @blackD);
+
+					&.blueText > font {
+						color: @blueB;
+					}
+
+					&.empty {
+						height: 22px;
+					}
+
+					&.gold {
+						font {
+							color: @yellowB;
+						}
+
+					}
+
+				}
+
+			}
+
+			.quick {
+				width: calc(100% - (2 * 96px));
+				height: 80px;
+				padding: 0px;
+				display: flex;
+				justify-content: center;
+
+				.slot {
+				}
+
+			}
+
+		}
+
+		.runes {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			width: 100%;
+			height: 80px;
+			padding: 8px;
+
+			.slot {
+				&:last-child {
+					margin-right: 0px;
+				}
+
+			}
+
+		}
+
+		.left,
+		.right,
+		.itemList,
+		.runes,
+		.tools,
+		.quick {
+			.slot {
+				width: 80px;
+				height: 80px;
+				background-color: @blackD;
+				margin-bottom: 8px;
+				cursor: pointer;
+				padding: 8px;
+				position: relative;
+
+				&:last-child {
+					margin-bottom: 0px;
+				}
+
+				&.show-default-icon {
+					.icon {
+						opacity: 0.5;
+						background-image: url('../../../images/uiIcons.png') !important;
+					}
+
+					&[slot="head"] 		.icon {
+						background-position: -0px -448px;
+					}
+
+					&[slot="neck"] 		.icon {
+						background-position: -64px -448px;
+					}
+
+					&[slot="chest"] 	.icon {
+						background-position: -128px -448px;
+					}
+
+					&[slot="hands"] 	.icon {
+						background-position: -192px -448px;
+					}
+
+					&[slot="finger-1"] 	.icon {
+						background-position: -256px -448px;
+					}
+
+					&[slot="finger-2"] 	.icon {
+						background-position: -256px -448px;
+					}
+
+					&[slot="waist"] 	.icon {
+						background-position: -320px -448px;
+					}
+
+					&[slot="legs"] 		.icon {
+						background-position: -384px -448px;
+					}
+
+					&[slot="feet"] 		.icon {
+						background-position: -448px -448px;
+					}
+
+					&[slot="trinket"] 	.icon {
+						background-position: -448px -384px;
+					}
+
+					&[slot="oneHanded"] .icon {
+						background-position: -384px -384px;
+					}
+
+					&[slot="offHand"] 	.icon {
+						background-position: -192px -384px;
+					}
+
+					&[slot="tool"] 		.icon {
+						background-position: -256px -384px;
+					}
+
+					&[slot^="rune"] 	.icon {
+						background-position: -320px -384px;
+					}
+
+					&[slot^="quick-0"] 	.icon {
+						background-position: -128px -384px;
+					}
+
+				}
+
+				.icon {
+					height: 100%;
+				}
+
+				.info {
+					left: 6px;
+					bottom: 3px;
+					position: absolute;
+					color: @white;
+					filter: drop-shadow(0px -2px 0px @blackD) 
+					drop-shadow(0px 2px 0px @blackD)
+					drop-shadow(2px 0px 0px @blackD) 
+					drop-shadow(-2px 0px 0px @blackD);
+					-moz-filter: drop-shadow(0px -2px 0px @blackD) 
+					drop-shadow(0px 2px 0px @blackD)
+					drop-shadow(2px 0px 0px @blackD) 
+					drop-shadow(-2px 0px 0px @blackD);
+				}
+
+				&:hover {
+					.icon {
+						filter: brightness(160%);
+						-moz-filter: brightness(160%);
+					}
+
+					&.empty {
+						background-color: fade(@blueA, 10%);
+					}
+
+				}
+
+			}
+
+		}
+
+		.itemList {
+			display: none;
+			position: absolute;
+			left: 0px;
+			top: 0px;
+			width: 100%;
+			height: 100%;
+			background-color: @blackC;
+			padding: 0px;
+			z-index: 2;
+			overflow-y: auto;
+
+			.slot {
+				float: left;
+				margin: 8px 0px 0px 8px;
+
+				.icon {
+					position: relative;
+
+					&.eq {
+						&:before {
+							content: 'eq';
+							left: -2px;
+							bottom: -3px;
+							position: absolute;
+							color: @white;
+							filter: drop-shadow(0px -2px 0px @blackD) 
+							drop-shadow(0px 2px 0px @blackD)
+							drop-shadow(2px 0px 0px @blackD) 
+							drop-shadow(-2px 0px 0px @blackD);
+							-moz-filter: drop-shadow(0px -2px 0px @blackD) 
+							drop-shadow(0px 2px 0px @blackD)
+							drop-shadow(2px 0px 0px @blackD) 
+							drop-shadow(-2px 0px 0px @blackD);
+						}
+
+					}
+
+					&.new {
+						&:before {
+							content: 'new';
+							left: -2px;
+							bottom: -3px;
+							position: absolute;
+							color: @white;
+							filter: drop-shadow(0px -2px 0px @blackD) 
+							drop-shadow(0px 2px 0px @blackD)
+							drop-shadow(2px 0px 0px @blackD) 
+							drop-shadow(-2px 0px 0px @blackD);
+							-moz-filter: drop-shadow(0px -2px 0px @blackD) 
+							drop-shadow(0px 2px 0px @blackD)
+							drop-shadow(2px 0px 0px @blackD) 
+							drop-shadow(-2px 0px 0px @blackD);
+						}
+
+					}
+
+				}
+
+			}
+
+		}
+
+	}
+
+}
+
+.mobile .uiEquipment {
+	width: calc(100% - 10px);
+	height: calc(100% - 10px);
+	margin-left: -5px;
+	margin-top: -5px;
+
+	.content {
+		flex-direction: column;
+		flex-wrap: wrap;
+		position: relative;
+
+		.main {
+			width: calc(100% - 8px);
+			height: calc(100% - 130px);
+			padding: 8px 8px 0px 8px;
+			justify-content: space-between;
+			position: relative;
+
+			.left,
+			.right,
+			.quick {
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+				width: 70%;
+				height: calc(100% / 3);
+
+				.slot {
+					margin-bottom: 0px;
+				}
+
+			}
+
+			.stats {
+				width: 30%;
+				height: calc(100% + 74px);
+				overflow-y: auto;
+				position: absolute;
+				right: 0px;
+			}
+
+			.quick {
+				order: 3;
+				justify-content: center;
+				padding: 0px 8px 0px 0px;
+			}
+
+			.left {
+				padding: 0px 8px 0px 0px;
+			}
+
+			.right {
+				order: 2;
+				padding: 0px 8px 0px 0px;
+			}
+
+		}
+
+		.runes {
+			flex-direction: row;
+			width: calc((100% - 16px) * 0.7);
+			position: absolute;
+			left: 1px;
+			bottom: 8px;
+			padding: 0px 8px 0px 8px;
+		}
+
+	}
+
+}

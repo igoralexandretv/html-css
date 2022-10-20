@@ -1,0 +1,184 @@
+@import "../../../css/colors.less";
+
+.uiWorkbench {
+	display: none;
+	width: 827px;
+	height: 447px;
+	border: 5px solid @blackB;
+	color: @white;
+	position: relative;
+	z-index: 2;
+
+	> .heading,
+	> .itemPicker > .heading {
+		color: @orangeA;
+		width: 100%;
+		height: 36px;
+		background-color: @blackB;
+		text-align: center;
+
+		.heading-text {
+			padding-top: 8px;
+			margin: auto;
+		}
+
+	}
+
+	> .bottom {
+		background-color: @blackC;
+		height: calc(100% - 36px);
+		width: 100%;
+
+		.heading {
+			color: @blueB;
+			margin-bottom: 10px;
+			text-align: center;
+		}
+
+		.left,
+		.right {
+			float: left;
+			height: 100%;
+			padding: 10px;
+		}
+
+		.left {
+			width: 300px;
+
+			.list {
+				height: calc(100% - 25px);
+				overflow-y: auto;
+				display: flex;
+				flex-direction: column;
+
+				.item {
+					width: 100%;
+					padding: 5px 10px;
+					cursor: pointer;
+					color: @grayB;
+
+					&.selected {
+						background-color: @blackB;
+						color: @white;
+					}
+
+					&:hover {
+						background-color: @blackB;
+					}
+
+				}
+
+			}
+
+		}
+
+		.right {
+			width: calc(100% - 300px);
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+
+			> * {
+				width: 100%;
+			}
+
+			.info {
+				height: calc(100% - 100px - 35px);
+				flex: 1;
+
+				.title {
+					color: @blueB;
+					padding-bottom: 10px;
+					text-align: center;
+				}
+
+				.description {
+					color: @grayB;
+					text-align: justify;
+				}
+
+			}
+
+			.materialList {
+				visibility: hidden;
+				margin-bottom: 20px;
+
+				.material {
+					&.need {
+						color: @redB;
+					}
+
+				}
+
+			}
+
+			.needItems {
+				display: none;
+				margin-bottom: 20px;
+				flex-direction: column;
+
+				.title {
+					color: @blueB;
+					padding-bottom: 10px;
+					text-align: center;
+				}
+
+				.list {
+					display: flex;
+					justify-content: space-around;
+				}
+
+			}
+
+			.buttons {
+				height: 40px;
+
+				> .btn {
+					height: 35px;
+					width: 100px;
+					color: @white;
+					text-align: center;
+					padding-top: 10px;
+					background-color: @blackB;
+					cursor: pointer;
+					float: left;
+
+					&:last-child {
+						float: right;
+					}
+
+					&:hover {
+						background-color: @blackA;
+					}
+
+				}
+
+			}
+
+		}
+
+	}
+
+	> .itemPicker {
+		display: none;
+		position: absolute;
+		left: 0px;
+		top: 0px;
+		width: 100%;
+		height: 100%;
+		background-color: @blackC;
+		flex-direction: column;
+
+		.list {
+			display: flex;
+			flex-wrap: wrap;
+			overflow-y: auto;
+		}
+
+	}
+
+}
+
+.mobile .uiWorkbench {
+	z-index: 2;
+}

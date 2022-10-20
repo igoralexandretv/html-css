@@ -1,0 +1,161 @@
+@import "../../../css/colors.less";
+
+.uiOptions {
+	display: none;
+	width: 400px;
+	background-color: @blackC;
+	border: 5px solid @blackB;
+	flex-direction: column;
+
+	> .heading {
+		color: @blueA;
+		width: 100%;
+		height: 36px;
+		background-color: @blackB;
+		position: relative;
+		text-align: center;
+
+		.heading-text {
+			padding-top: 8px;
+			margin: auto;
+		}
+
+	}
+
+	.bottom {
+		padding: 10px;
+		height: 100%;
+		overflow-y: auto;
+
+		.list {
+			display: flex;
+			flex-direction: column;
+
+			.heading {
+				color: @grayC;
+				border-bottom: 2px solid @grayD;
+				margin: 0px 10px 5px 10px;
+				padding-bottom: 5px;
+
+				&:not(:first-child) {
+					margin: 10px 10px 5px 10px;
+				}
+
+			}
+
+			.item {
+				height: 30px;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+
+				.name {
+					color: @blueB;
+					flex: 1;
+					height: 100%;
+					display: flex;
+					align-items: center;
+					padding: 0px 10px;
+					margin-right: 10px;
+					cursor: pointer;
+
+					&:hover {
+						color: @blueA;
+						background-color: @blackA;
+					}
+
+				}
+
+				.value {
+					color: @white;
+					display: flex;
+					align-items: center;
+					justify-content: flex-end;
+					padding-right: 10px;
+				}
+
+				&.volume {
+					flex-wrap: wrap;
+					height: 60px;
+
+					.name {
+						pointer-events: none;
+					}
+
+					.name,
+					.value {
+						width: 50%;
+						height: 30px;
+					}
+
+					.slider {
+						padding: 0px 10px;
+						width: 100%;
+						height: 30px;
+						display: flex;
+						position: relative;
+
+						.btn {
+							width: 30px;
+							margin-top: 5px;
+							height: calc(100% - 10px);
+							display: flex;
+							justify-content: center;
+							align-items: center;
+							color: @white;
+							background-color: @blackA;
+							padding-top: unset;
+
+							&:first-child {
+								margin-right: 10px;
+							}
+
+							&:last-child {
+								margin-left: 10px;
+							}
+
+							&:hover {
+								background-color: @grayD;
+							}
+
+						}
+
+						.bar {
+							width: 100%;
+							background-color: @blueD;
+							border-top: 10px solid @blackC;
+							border-bottom: 10px solid @blackC;
+							height: 100%;
+							position: relative;
+
+							.tick {
+								position: absolute;
+								width: 5px;
+								height: 20px;
+								top: -5px;
+								left: 100%;
+								background-color: @blueA;
+							}
+
+						}
+
+					}
+
+				}
+
+			}
+
+		}
+
+	}
+
+}
+
+.mobile .uiOptions {
+	max-height: 100%;
+
+	.item.screen {
+		display: none;
+	}
+
+}

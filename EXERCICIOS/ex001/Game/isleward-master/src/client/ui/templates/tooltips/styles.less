@@ -1,0 +1,26 @@
+@import "../../../css/colors.less";
+
+.uiTooltips {
+	z-index: 4;
+
+	.tooltip {
+		display: none;
+		z-index: 4;
+		background-color: fade(#3a3b4a, 85%);
+		position: absolute;
+		padding: 8px;
+		color: @white;
+		text-align: justify;
+
+		&.bright {
+			background-color: @grayB;
+			color: @black;
+		}
+
+		.hidden {
+			display: none;
+		}
+
+	}
+
+}

@@ -1,0 +1,363 @@
+@import "../../../css/colors.less";
+
+.uiInventory,
+.uiStash {
+	display: none;
+	z-index: 2;
+	width: 818px;
+	border: 5px solid @blackB;
+	text-align: center;
+
+	> .heading {
+		color: @blueA;
+		width: 100%;
+		height: 36px;
+		background-color: @blackB;
+		position: relative;
+
+		.heading-text {
+			padding-top: 8px;
+			margin: auto;
+		}
+
+	}
+
+	position: relative;
+
+	.grid {
+		float: left;
+		width: 808px;
+		height: 408px;
+		overflow: hidden;
+		padding: 4px;
+		position: relative;
+		background-color: @blackC;
+
+		.item {
+			width: 72px;
+			height: 72px;
+			float: left;
+			position: relative;
+			cursor: pointer;
+			box-sizing: border-box;
+			margin: 4px;
+			background-color: @blackD;
+
+			&.hover {
+				background-color: fade(@blueA, 10%);
+			}
+
+			&.dragging {
+				position: absolute;
+				opacity: 0.5;
+				pointer-events: none;
+				background-color: transparent;
+
+				.icon {
+					filter: brightness(100%)
+					drop-shadow(0px -4px 0px @blackD) 
+					drop-shadow(0px 4px 0px @blackD)
+					drop-shadow(4px 0px 0px @blackD) 
+					drop-shadow(-4px 0px 0px @blackD);
+					-moz-filter: brightness(100%)
+					drop-shadow(0px -4px 0px @blackD) 
+					drop-shadow(0px 4px 0px @blackD)
+					drop-shadow(4px 0px 0px @blackD) 
+					drop-shadow(-4px 0px 0px @blackD);
+				}
+
+			}
+
+			.quantity {
+				left: 6px;
+				bottom: 3px;
+				position: absolute;
+				color: @white;
+				filter: drop-shadow(0px -2px 0px @blackD) 
+				drop-shadow(0px 2px 0px @blackD)
+				drop-shadow(2px 0px 0px @blackD) 
+				drop-shadow(-2px 0px 0px @blackD);
+				-moz-filter: drop-shadow(0px -2px 0px @blackD) 
+				drop-shadow(0px 2px 0px @blackD)
+				drop-shadow(2px 0px 0px @blackD) 
+				drop-shadow(-2px 0px 0px @blackD);
+			}
+
+			.icon {
+				width: 64px;
+				height: 64px;
+				position: absolute;
+				left: 4px;
+				top: 4px;
+			}
+
+			&.eq {
+				.quantity {
+					color: @yellowA;
+				}
+
+			}
+
+			&.new {
+				.quantity {
+					color: @greenA;
+				}
+
+			}
+
+			&:hover {
+				.icon {
+					filter: brightness(160%);
+					-moz-filter: brightness(160%);
+				}
+
+			}
+
+		}
+
+	}
+
+	.menu-bar {
+		background-color: @blackB;
+		width: 100%;
+		height: 45px;
+		padding-top: 5px;
+		clear: both;
+
+		.btn {
+			background-color: @blueC;
+			color: @white;
+			padding: 0px 10px;
+			height: 40px;
+
+			&:hover {
+				background-color: @blueD;
+			}
+
+			&.btnSortInv {
+				float: left;
+			}
+
+		}
+
+	}
+
+	.split-box {
+		display: none;
+		background-color: fade(@blackD, 85%);
+		text-align: center;
+		position: absolute;
+		left: 0%;
+		top: 0%;
+		width: 100%;
+		height: 100%;
+
+		.inner {
+			border: 5px solid @blackB;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			width: 200px;
+			height: 147px;
+
+			> .heading {
+				color: @blueA;
+				width: 100%;
+				height: 36px;
+				background-color: @blackB;
+
+				.heading-text {
+					padding-top: 8px;
+					margin: auto;
+				}
+
+			}
+
+			.bottom {
+				height: calc(100% - 36px);
+				background-color: @blackC;
+				padding: 10px;
+
+				.amount {
+					float: left;
+					color: @white;
+					text-align: center;
+					width: calc(100% - 80px);
+					height: 36px;
+					padding-top: 3px;
+					border: none;
+				}
+
+				input,
+				.textbox,
+				input:-webkit-autofill {
+					color: @white;
+					-webkit-text-fill-color: @white;
+					background-color: @blackC;
+				}
+
+				.btn {
+					width: 100%;
+					height: 36px;
+					background-color: @blueC;
+					color: @white;
+
+					&:hover {
+						background-color: @blueB;
+					}
+
+					&:not(.btnSplit) {
+						width: 40px;
+						float: left;
+						color: @white;
+						background-color: @blackB;
+
+						&:hover {
+							background-color: @blackA;
+						}
+
+					}
+
+					&.btnSplit {
+						margin-top: 45px;
+						clear: both;
+					}
+
+				}
+
+			}
+
+		}
+
+	}
+
+}
+
+.ui-container.quality-border .grid .item:not(.empty),
+.ui-container.quality-bottom .grid .item:not(.empty) {
+	&:before {
+		content: '';
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		width: 100%;
+		height: 100%;
+		box-sizing: border-box;
+		border-width: 5px;
+		border-style: solid;
+	}
+
+	&.quality-0:before {
+		border: none;
+	}
+
+	&.quality-1:before {
+		border-color: @greenC;
+	}
+
+	&.quality-2:before {
+		border-color: @blueD;
+	}
+
+	&.quality-3:before {
+		border-color: @purpleC;
+	}
+
+	&.quality-4:before {
+		border-color: @orangeD;
+	}
+
+}
+
+.ui-container.quality-bottom .grid .item:not(.empty) {
+	&:before {
+		border-width: 0px 0px 5px 0px;
+	}
+
+}
+
+.ui-container.quality-background .grid .item:not(.empty),&.unusable-background .grid .item.no-equip {
+	&:before {
+		content: '';
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		width: 100%;
+		height: 100%;
+	}
+
+	.icon {
+		filter: brightness(100%)
+		drop-shadow(0px -4px 0px @blackD) 
+		drop-shadow(0px 4px 0px @blackD)
+		drop-shadow(4px 0px 0px @blackD) 
+		drop-shadow(-4px 0px 0px @blackD);
+
+		&:hover {
+			filter: brightness(160%)
+			drop-shadow(0px -4px 0px @blackD) 
+			drop-shadow(0px 4px 0px @blackD)
+			drop-shadow(4px 0px 0px @blackD) 
+			drop-shadow(-4px 0px 0px @blackD);
+		}
+
+	}
+
+	&.quality-1:before {
+		background-color: @greenC;
+	}
+
+	&.quality-2:before {
+		background-color: @blueD;
+	}
+
+	&.quality-3:before {
+		background-color: @purpleC;
+	}
+
+	&.quality-4:before {
+		background-color: @orangeD;
+	}
+
+	&.no-equip:before {
+		background-color: @redD;
+	}
+
+}
+
+.ui-container.unusable-border .grid .item.no-equip,
+.ui-container.unusable-top .grid .item.no-equip {
+	&:after {
+		content: '';
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		width: 100%;
+		height: 100%;
+		box-sizing: border-box;
+		border-width: 5px;
+		border-style: solid;
+		border-color: @redD;
+		pointer-events: none;
+	}
+
+}
+
+.ui-container.unusable-top .grid .item.no-equip {
+	&:after {
+		border-width: 5px 0px 0px 0px;
+	}
+
+}
+
+.ui-container.quality-border.unusable-border .grid .item.no-equip:not(.quality-0),
+.ui-container.quality-border.unusable-top .grid .item.no-equip:not(.quality-0) {
+	&:after {
+		top: 5px;
+		left: 5px;
+		width: calc(100% - 10px);
+		height: calc(100% - 10px);
+	}
+
+}

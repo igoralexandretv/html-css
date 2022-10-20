@@ -1,0 +1,163 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: 'danger';
+    src: url('Fontes/Another\ Danger\ -\ Demo.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'nightmare';
+    src: url('Fontes/Nightmare.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'george';
+    src: url('Fontes/Louis\ George\ Cafe.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'bebas';
+    src: url('Fontes/BebasNeue-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'sick';
+    src: url('Fontes/Sickness.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'zelda';
+    src: url('Fontes/The\ Wild\ Breath\ of\ Zelda.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+:root {
+    --cor0: #6B0E03;
+    --cor1: #EE5E4F;
+    --cor2: #EB1E07;
+    --cor3: #6B2017;
+    --cor4: #B81706;
+
+    --fonte-danger: 'danger', 'cursive';
+    --fonte-padrao: 'Arial', 'Helvetica', 'Verdana', 'Sans-serif';
+    --fonte-nightmare: 'nightmare', 'cursive';
+    --fonte-george: 'george', 'cursive';
+    --fonte-beba: 'bebas', 'cursive';
+    --fonte-sick: 'sick', 'cursive';
+    --fonte-zelda: 'zelda', 'cursive';
+}
+
+body {
+    background-color: var(--cor1);
+}
+header {
+    background-image: linear-gradient(to bottom, var(--cor2), var(--cor4), var(--cor3));
+    padding: 20px;
+    text-align: center;
+    color: white;
+    min-height: 150px;
+}
+
+header h1 {
+    padding-bottom: 10px;
+    font-family: var(--fonte-danger);
+}
+
+header p {
+    padding-top: 10px;
+    font-family: var(--fonte-padrao);
+    font-weight: bold;
+    max-width: 500px;
+    margin: auto;
+}
+
+nav {
+    padding: 10px;
+    background-color: var(--cor3);
+    box-shadow: 0px 7px 7px rgba(0, 0, 0, 0.37);
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    background-color:var(--cor1);
+}
+
+main {
+    margin: auto;
+    background-color: white;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 20px;
+    color: black;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.479);
+    border-top: 0.4px solid #FFF2E7;
+    min-width: 300px;
+    max-width: 1000px;
+}
+
+main h2 {
+    padding: 10px;
+    font-family: var(--fonte-nightmare);
+}
+
+main p {
+    text-align: justify;
+    margin: 10px 0px;
+    text-indent: 30px;
+    font-size: 1em;
+    line-height: 1.3em;
+    font-family: var(--fonte-padrao);
+    font-weight: bold;
+}
+
+footer {
+    padding: 30px 30px 10px 10px;
+    margin: center;
+    text-align: justify;
+    font-family: var(--fonte-padrao);
+    color: white;
+    font-weight: bold;
+}
+
+ul {
+   background-color: var(--cor3); 
+   color: white;
+   font-family: var(--fonte-padrao);
+   padding: 20px;
+   border-radius: 10px;
+}
+
+ul li {
+    padding: 0px 0px 3px 10px;
+    font-weight: bold;
+}
+
+article > img {
+    display: block;
+    margin: auto;
+    width: 300px;
+    height: 300px;
+    max-width: 350px;
+}

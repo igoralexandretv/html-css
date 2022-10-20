@@ -1,0 +1,3 @@
+/client/plugins/*
+node_modules/*
+*.json

@@ -1,0 +1,167 @@
+@import "../../../css/colors.less";
+@marginBetweenItems: 2px;
+
+.uiTooltipItem {
+	> * {
+		z-index: 999999;
+	}
+
+	.tooltip {
+		display: none;
+		flex-direction: column;
+		position: absolute;
+		margin-left: -4px;
+		margin-top: -4px;
+		background-color: fade(@blackB, 95%);
+		pointer-events: none;
+		padding: 10px;
+		color: @white;
+		align-items: center;
+		line-height: 18px;
+		max-width: 300px;
+		text-align: center;
+
+		> *:not(:empty) {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+
+			& + * {
+				margin-top: @marginBetweenItems;
+			}
+
+		}
+
+		> *:empty {
+			display: none;
+		}
+
+		.line {
+			height: 2px;
+			width: 100%;
+			background-color: @grayD;
+		}
+
+		.space {
+			height: 6px;
+		}
+
+		.smallSpace {
+			height: 2px;
+		}
+
+		.type {
+			color: @grayC;
+		}
+
+		.power {
+			color: @greenA;
+		}
+
+		> .implicitStats {
+			width: 100%;
+			color: @grayB;
+
+			> * + * {
+				margin-top: @marginBetweenItems;
+			}
+
+			.gainStat {
+				color: @greenA;
+			}
+
+			.loseStat {
+				color: @redB;
+			}
+
+		}
+
+		> .stats {
+			width: 100%;
+			color: @grayB;
+
+			> * + * {
+				margin-top: @marginBetweenItems;
+			}
+
+			.gainStat {
+				color: @greenA;
+			}
+
+			.loseStat {
+				color: @redB;
+			}
+
+			.enchanted {
+				color: @tealC !important;
+			}
+
+		}
+
+		.effects {
+			color: @white;
+		}
+
+		.faction {
+			color: @grayC;
+		}
+
+		.high-level {
+			color: @redB;
+		}
+
+		.material {
+			color: @grayC;
+		}
+
+		.quest {
+			color: @grayC;
+		}
+
+		.info {
+			color: @grayD;
+		}
+
+		.damage {
+			.gainDamage {
+				color: @greenA;
+			}
+
+			.loseDamage {
+				color: @redB;
+			}
+
+		}
+
+		.description {
+			color: @brownB;
+			text-align: center;
+		}
+
+		.worth {
+			&.no-afford {
+				color: @redB;
+			}
+
+		}
+
+	}
+
+	> .btn {
+		position: absolute;
+		background-color: @blueB;
+		color: @white;
+		padding: 10px;
+		text-align: center;
+	}
+
+}
+
+.mobile .uiTooltipItem {
+	z-index: 9999999999;
+
+	> * {
+		z-index: 9999999999;
+	}
+
+}

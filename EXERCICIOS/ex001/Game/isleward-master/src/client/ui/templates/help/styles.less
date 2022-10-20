@@ -1,0 +1,89 @@
+@import "../../../css/colors.less";
+
+.uiHelp {
+	display: none;
+	z-index: 2;
+	border: 5px solid @blackB;
+	text-align: center;
+	flex-direction: column;
+
+	> .heading {
+		color: @blueA;
+		width: 100%;
+		height: 36px;
+		background-color: @blackB;
+		position: relative;
+
+		.heading-text {
+			padding-top: 8px;
+			margin: auto;
+		}
+
+	}
+
+	.content {
+		overflow-y: auto;
+		background-color: @blackD;
+		width: 100%;
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		padding: 5px;
+
+		.row {
+			padding: 5px;
+			display: flex;
+			justify-content: center;
+			background-color: @blackC;
+
+			+ .row {
+				margin-top: 5px;
+			}
+
+			&.mobile {
+				display: none;
+			}
+
+			.topic {
+				color: @blueB;
+				text-align: right;
+				width: 30%;
+			}
+
+			.desc {
+				color: @grayB;
+				text-align: left;
+				width: 70%;
+				max-width: 400px;
+				padding-left: 20px;
+			}
+
+			.toslink {
+				color: @white;
+				cursor: pointer;
+
+				&:hover {
+					color: @blueA;
+				}
+
+			}
+
+		}
+
+	}
+
+}
+
+.mobile .uiHelp {
+	height: 80vh;
+
+	.row {
+		display: none;
+
+		&.mobile {
+			display: flex
+		}
+
+	}
+
+}

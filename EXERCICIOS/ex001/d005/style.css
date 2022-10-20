@@ -1,0 +1,60 @@
+@font-face {
+    font-family: 'vamp';
+    src: url('Fontes/Vampire\ Wars.otf') format('opentype');
+    font-size: 1.5em;
+    font-weight: lighter;
+    
+}
+
+@font-face {
+    font-family: 'howard';
+    src: url('Fontes/Newton\ Howard\ Font.ttf') format('truetype');
+    font-size: 1.5em;
+    font-weight: lighter;
+}
+
+main {
+    background-color: white;
+    width: 600px;
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: 2px 2px 1px rgba(27, 27, 27, 0.603);
+    
+}
+
+body {
+    background-image: linear-gradient(to right, #5088DD 18%, #1563D6, #3A475C);
+}
+
+h1 {
+   color: #0BE081;
+   font-family: 'vamp', 'Times New Roman', Times, serif; 
+   text-align: center;
+   font-style: italic;
+   font-weight: lighter;
+}
+
+h2 {
+    font-family: 'vamp', 'Times New Roman', Times, serif;
+    color: #114BA3;
+    text-align: center;
+}
+
+p {
+    text-align: center;
+    font: normal 100 1.5em 'howard', sans-serif;
+
+}
+
+img#igor {
+    border-radius: 10px;
+    line-height: 150px;
+    width: 150px;
+    box-shadow: 1px 1px 0.5px black;
+    margin: 0px auto;
+    display: block;
+}
+
+ul {
+    font-family: 'vamp';
+}

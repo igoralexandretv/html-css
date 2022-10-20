@@ -1,0 +1,162 @@
+@import "../../../css/colors.less";
+@btnSize: 64px;
+
+.uiQuests {
+	width: 326px;
+	box-shadow: 0 -2px 0 @black, 0 2px 0 @black, 2px 0 0 @black, -2px 0 0 @black;
+
+	.heading {
+		color: @yellowA;
+		padding: 8px;
+		background-color: fade(#3a3b4a, 90%);
+	}
+
+	.list {
+		.quest {
+			cursor: pointer;
+			padding: 8px;
+			background-color: fade(#3a3b4a, 90%);
+
+			&:hover {
+				background-color: fade(lighten(#3a3b4a, 15%), 90%);
+			}
+
+			.zone {
+				color: @grayD;
+				margin-bottom: 4px;
+				text-align: right;
+			}
+
+			.name {
+				color: @white;
+				margin-bottom: 3px;
+			}
+
+			.description {
+				color: darken(@white, 35%);
+			}
+
+			&.disabled {
+				.description {
+					display: none;
+				}
+
+			}
+
+			.reward {
+				display: none;
+				color: @tealC;
+			}
+
+			&:hover {
+				> .description {
+					display: none;
+				}
+
+				> .reward {
+					display: block;
+				}
+
+			}
+
+			.ready-text {
+				display: none;
+			}
+
+			&.active {
+				.name {
+					color: @blueB;
+				}
+
+			}
+
+			&.ready {
+				.name {
+					color: @greenA;
+				}
+
+				.description {
+					display: none;
+				}
+
+				.reward {
+					display: none;
+				}
+
+				.ready-text {
+					display: block;
+					color: @white;
+				}
+
+			}
+
+		}
+
+	}
+
+	.btn {
+		display: none;
+	}
+
+	&.minimal {
+		.quest.disabled {
+			display: none;
+		}
+
+	}
+
+}
+
+.mobile .uiQuests {
+	background-color: fade(@blackC, 90%);
+
+	&:not(.active) {
+		width: @btnSize;
+		height: @btnSize;
+		margin-left: 10px;
+		position: relative;
+
+		&:after {
+			content: '';
+			position: absolute;
+			left: 0px;
+			top: 0px;
+			background: url('../../../images/uiIcons.png');
+			background-position: -64px -128px;
+			width: @btnSize;
+			height: @btnSize;
+		}
+
+		> * {
+			display: none;
+		}
+
+	}
+
+	&.active {
+		z-index: 3;
+		position: absolute;
+		right: 0px;
+		top: 0px;
+
+		.btn {
+			display: block;
+			position: absolute;
+			right: calc(100% + 10px);
+			top: 0px;
+			background-color: fade(@blackC, 90%);
+			width: @btnSize;
+			height: @btnSize;
+			padding-top: 0px;
+
+			.icon {
+				width: 100%;
+				height: 100%;
+				background: url('../../../images/uiIcons.png') -448px 0px;
+			}
+
+		}
+
+	}
+
+}

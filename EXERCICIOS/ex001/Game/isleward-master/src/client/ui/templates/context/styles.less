@@ -1,0 +1,56 @@
+@import "../../../css/colors.less";
+
+.uiContext {
+	display: none;
+	position: absolute;
+	padding: 5px;
+	z-index: 999999;
+	border: 5px solid @blueD;
+	background-color: fade(@blackD, 95%);
+	padding: 5px;
+	color: @white;
+	text-align: center;
+	line-height: 15px;
+
+	.list {
+		width: 100%;
+		height: 100%;
+
+		.option {
+			width: 100%;
+			padding: 5px;
+			color: @white;
+			cursor: pointer;
+			display: flex;
+			justify-content: center;
+
+			&:hover:not(.no-hover) {
+				background-color: @blueC;
+			}
+
+			&.divider {
+				line-height: 2px;
+				padding: 0px;
+				margin: 5px 0px;
+				color: transparent;
+				background-color: @grayD;
+			}
+
+			&.no-hover:not(.divider) {
+				color: @grayC;
+			}
+
+			.hotkey {
+				color: @blueA;
+
+				&:not(:empty) {
+					margin-left: 10px;
+				}
+
+			}
+
+		}
+
+	}
+
+}

@@ -1,0 +1,104 @@
+@import "../../../css/colors.less";
+@pad: 8px;
+@btnSize: 64px;
+
+.uiSpells {
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	height: (@btnSize + @pad);
+
+	.spell {
+		width: @btnSize;
+		height: @btnSize;
+		float: left;
+		margin-left: 10px;
+		background-color: #2d2136;
+		cursor: pointer;
+		position: relative;
+		box-sizing: content-box;
+		border: 5px solid fade(#3a3b4a, 90%);
+		transition-property: filter;
+		transition-duration: 0.1s;
+
+		&:first-child {
+			margin-left: 0px;
+		}
+
+		&:hover {
+			filter: brightness(160%);
+			-moz-filter: brightness(160%);
+		}
+
+		&.active .hotkey {
+			color: @greenA;
+		}
+
+		.icon {
+			position: absolute;
+			left: 0px;
+			top: 0px;
+			width: 100%;
+			height: 100%;
+		}
+
+		.cooldown {
+			position: absolute;
+			left: 0px;
+			top: 0px;
+			width: 0px;
+			height: 100%;
+			background-color: fade(@redB, 75%);
+		}
+
+		.hotkey {
+			position: absolute;
+			left: -2px;
+			bottom: -6px;
+			color: @white;
+			font-size: 18px;
+			z-index: 2;
+			text-shadow: 2px 2px 0 #2d2136, -2px -2px 0 #2d2136, 2px -2px 0 #2d2136, -2px  2px 0 #2d2136, 2px  2px 0 #2d2136;
+
+			&.no-mana {
+				color: @redB;
+			}
+
+		}
+
+	}
+
+}
+
+.mobile .uiSpells {
+	top: auto;
+	bottom: 10px;
+	padding: 0px;
+	height: auto;
+	background-color: transparent;
+	display: flex;
+	flex-direction: column-reverse;
+
+	.spell {
+		position: relative;
+		margin: 10px 0px 0px 0px;
+		background-color: fade(#3a3b4a, 90%);
+		border: none;
+
+		.hotkey {
+			display: none;
+		}
+
+		&.active:before {
+			content: '';
+			width: 5px;
+			height: 100%;
+			left: -5px;
+			top: 0%;
+			background-color: @greenB;
+			position: absolute;
+		}
+
+	}
+
+}
